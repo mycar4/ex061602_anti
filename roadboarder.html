@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Roadboarder - unsu.ai</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdfa0",
+                    "on-surface": "#071e27",
+                    "surface-container-highest": "#cfe6f2",
+                    "on-background": "#071e27",
+                    "secondary-fixed-dim": "#fbbc00",
+                    "on-primary-fixed": "#001c3a",
+                    "surface": "#f3faff",
+                    "inverse-on-surface": "#dff4ff",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "on-tertiary-fixed-variant": "#3b4951",
+                    "on-primary-container": "#fffdff",
+                    "surface-tint": "#005faf",
+                    "surface-container-high": "#d5ecf8",
+                    "on-error-container": "#93000a",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#cfe6f2",
+                    "on-tertiary-container": "#fdfdff",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#a5c8ff",
+                    "tertiary-container": "#697781",
+                    "tertiary-fixed-dim": "#bac9d3",
+                    "tertiary": "#505e68",
+                    "tertiary-fixed": "#d6e5ef",
+                    "on-secondary-fixed-variant": "#5c4300",
+                    "background": "#f3faff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#6d5000",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#d4e3ff",
+                    "primary-container": "#1976d2",
+                    "surface-dim": "#c7dde9",
+                    "secondary-container": "#ffbf00",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#0f1d25",
+                    "outline": "#717783",
+                    "inverse-surface": "#1e333c",
+                    "on-surface-variant": "#414752",
+                    "secondary": "#795900",
+                    "surface-bright": "#f3faff",
+                    "on-secondary-fixed": "#261a00",
+                    "outline-variant": "#c1c6d4",
+                    "surface-container": "#dbf1fe"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-desktop": "24px",
+                    "base": "8px",
+                    "stack-sm": "12px",
+                    "gutter-mobile": "16px",
+                    "stack-md": "24px",
+                    "touch-target-min": "48px",
+                    "margin-edge": "20px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "data-numeric": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["26px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "data-numeric": ["22px", {"lineHeight": "28px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .play-btn-glow {
+        box-shadow: 0 0 20px rgba(0, 95, 172, 0.4);
+      }
+      body {
+        background-color: #f3faff;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-gutter-mobile h-touch-target-min w-full sticky top-0 z-50 bg-surface dark:bg-on-surface shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h1 class="font-display-lg text-headline-md font-bold text-primary dark:text-primary-fixed-dim">unsu.ai</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant dark:text-outline-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-150">notifications</button>
+</div>
+</header>
+<main class="pb-24 max-w-screen-xl mx-auto">
+<!-- Hero Section: Featured Vlog -->
+<section class="p-gutter-mobile md:p-gutter-desktop">
+<div class="relative overflow-hidden rounded-xl h-64 md:h-96 w-full shadow-lg group">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic first-person view from a modern luxury bus driver seat during a glowing sunset in a coastal city." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq0TBYeObLRRBYs360q3d_xmZPoULLuAoAGWWgXXsqGx5cCdd6ITHrFXutH8XbbqX1fxXKKr05Ex3DoiGf38YqiAmiBxp9KIfGlpSJLrrUZsKCEitxxLdAXo6WWb3_ErqRa8zLUL_UtCdW3cfQ9ZesxxDkkfrJXJnnyqrFt9I6sG8Rup67cMvMf4rjkRFfdUiX8n3_4WUuxsG9qbk50_E05kF8-Cw5CCJhmxUH5soru2GacJWp60iXjYsbxtryooC02T4d5hufiZ4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-gutter-mobile flex flex-col gap-2">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg w-fit">
+                        생방송: 베테랑의 비밀 코스
+                    </span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white">수익 극대화: 금요일 야간 운행</h2>
+<p class="text-white/80 font-body-md text-body-md">15년 경력 김베테랑의 피크 타임 주행 노하우를 시청하세요.</p>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<button class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white play-btn-glow active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Insights Bento Grid -->
+<section class="px-gutter-mobile md:px-gutter-desktop space-y-stack-md">
+<div class="flex justify-between items-end">
+<h3 class="font-headline-md text-headline-md text-on-surface">실시간 현장 인사이트</h3>
+<a class="text-primary font-label-lg text-label-lg hover:underline transition-all" href="#">전체 보기</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-base">
+<!-- Large Feature Card -->
+<div class="md:col-span-2 relative group rounded-xl overflow-hidden h-72 shadow-sm border border-outline-variant">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional transport driver checking a high-tech tablet mounted in a vehicle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj-j9s_zdZiX60HIK4wpRBtQSjluilGh5gGj3DouHl63idmNwxCGNOraduKrrNS57gzZBZ90TqTZivUrT89F1S9L6k-o0J673HqFHoD4aEvP5Fv16ljb1jcBnIrPzqbAlstD3vC4FaQfKUSroU4fyXyN_-qvzVpi6DhBu2Rm_HDODX_uTnKsm6ZtSqzHnZuCTZqgA-M1KYG-7TCeU2DrLjI6t54Vtq7uzDUT9YSVBU_8zmz5ii-Ped1yt8JTbq8Rpavs6bSCu62bk"/>
+<div class="absolute inset-0 bg-gradient-to-r from-on-surface/80 to-transparent"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end gap-2">
+<div class="flex items-center gap-2 text-secondary-fixed">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="font-label-lg text-label-lg uppercase tracking-wider">성장 스토리</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-white">1년 차 초보에서 법인 관리자까지</h4>
+<p class="text-white/70 font-body-md text-body-md max-w-md">unsu.ai 플랫폼이 어떻게 제 사업 확장을 도왔는지 확인해보세요.</p>
+</div>
+</div>
+<!-- Secondary Card -->
+<div class="bg-surface-container-high rounded-xl p-6 flex flex-col justify-between border border-outline-variant hover:shadow-md transition-shadow">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">tips_and_updates</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">오늘의 프로 꿀팁</h4>
+<p class="text-on-surface-variant font-body-md text-body-md">"공회전 시 에어컨 온도를 2도 높이면 연료를 5% 절약할 수 있습니다."</p>
+</div>
+<button class="mt-4 flex items-center gap-2 text-primary font-label-lg text-label-lg group">
+                        클립 보기 <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Horizontal Scroll: Veteran's Secret Route -->
+<section class="mt-stack-md py-stack-md bg-surface-container-low">
+<div class="px-gutter-mobile md:px-gutter-desktop flex justify-between items-center mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">베테랑의 비밀 코스</h3>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-white transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-white transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex overflow-x-auto gap-4 px-gutter-mobile no-scrollbar pb-4">
+<!-- Video Item 1 -->
+<div class="flex-none w-72 group cursor-pointer">
+<div class="relative h-44 rounded-xl overflow-hidden mb-3 border border-outline-variant">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Rainy day city perspective." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx53w_c0LM6sBVN5n8d0sC4GPuiJZAurXIaSfln-cF5DZGR-Go5AFFAxXQbgzCC8oiamyD3x2skIzaWBC098ycMR17W_6yMWlgghfcgN97r0cg6HqC_SFZS48c3T5X-Ftn6nxTjLq0oOOLNt5EKHGpR__CfXdwku2rjCZlSp3kKcjnP_BX4XdLrohDNhPZBOBssJmYbUcAxTLHKq79zgiz5yBargp-SA550kvJzjYrOQLcQhReOI_GE4pT7cRdiRGgVfiv0HdTr34"/>
+<div class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/70 text-white font-label-lg text-xs">12:45</div>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+</div>
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold">MK</div>
+<div class="flex flex-col">
+<h5 class="font-label-lg text-label-lg text-on-surface line-clamp-2">비 오는 날 서울 도심 지름길</h5>
+<p class="text-on-surface-variant text-sm mt-1">김마스터 • 조회수 1.2만</p>
+</div>
+</div>
+</div>
+<!-- Video Item 2 -->
+<div class="flex-none w-72 group cursor-pointer">
+<div class="relative h-44 rounded-xl overflow-hidden mb-3 border border-outline-variant">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Professional steering wheel view." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHMo4Cc5wAuIufiFHv8qeqtKoCJOlLdDjB1l0tLBNa0qg5QlHL4kS-YXCgURlb-2nI_HcP1CnaMlIrNF6KOw2ioL8wwg3_hfPDgOTFflA72z3S14ZyTi0HVQBBUlg_qNP-ngkINIKigcmB-sLyezxcJHI4A_Si0Gywv-3eJMN1diaLMg6UDujq-9gBIhtFNxBRBH6D1DD924dKTgdrtnoZJznKi-s_bFANAVur5nOvf7jhsdBXJiwSyZjy7tdduDNmSBmL87NS4yc"/>
+<div class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/70 text-white font-label-lg text-xs">08:20</div>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+</div>
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold">JS</div>
+<div class="flex flex-col">
+<h5 class="font-label-lg text-label-lg text-on-surface line-clamp-2">스트레스 제로 아침 톨게이트 코스</h5>
+<p class="text-on-surface-variant text-sm mt-1">진수 • 조회수 8.4천</p>
+</div>
+</div>
+</div>
+<!-- Video Item 3 -->
+<div class="flex-none w-72 group cursor-pointer">
+<div class="relative h-44 rounded-xl overflow-hidden mb-3 border border-outline-variant">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Mountain highway at dawn." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1vy0O33ogYzxUrt8H0LbSAPm-3oBcPHr2NSH6LV0J7DaBht5zVvDrV5VrbGkzbg-SGWlFlzV5CrxtjtWDl2-PHu5C42Ju3CE2Zk41gkNFF6tea0NWpbgEovdaA5vopZjtZOjuO3KABKB8De6UD0rM6U25fiNa63tOCm-cAIBi26YStVB_qBq8bFaXW_5f3e-H6NvzQG2NZra2jnqo14KpbcZz9hDmctaQsDcAvXxDgqZ9l2sJHvFOFOsvXrTQlMCZTv1Gqcdbfoc"/>
+<div class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/70 text-white font-label-lg text-xs">15:10</div>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+</div>
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed font-bold">PT</div>
+<div class="flex flex-col">
+<h5 class="font-label-lg text-label-lg text-on-surface line-clamp-2">별 5개 리뷰를 위한 숨겨진 휴게소</h5>
+<p class="text-on-surface-variant text-sm mt-1">박테크 • 조회수 1.5만</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Activity Feed -->
+<section class="px-gutter-mobile md:px-gutter-desktop mt-stack-md space-y-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">커뮤니티 실시간 피드</h3>
+<div class="space-y-base">
+<div class="glass-card p-4 rounded-xl border border-outline-variant flex items-center gap-4">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Portrait of a friendly driver." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABgjLxLBVeRNbs0gXXkjagp3irjlJjOzzvbF2WkhFnPbWczPIKKqRUr4DYvac84cmEwlIBDofNNaoLciQ--LPl5XGZO0i75ubIvQzEraPMM1vGP0fYKK1X9M0jLhwFFz9AZgUPu86L_FV9umCSY1P3vo8zxDnaVX1sVyFQslw9MlUQLQ5UFSHnpICN9cUEWUgt6YrpfSKhNjF9EVa0zswTHLDt_WdiXYWpWZBp9BPtGeXfx6d43soV7bJN51TOF4ozC5LKOxDMjc4"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+</div>
+<div class="flex-1">
+<p class="text-on-surface font-body-md text-body-md"><span class="font-bold">이 기사님이</span> 비밀 장소를 공유했습니다</p>
+<p class="text-on-surface-variant text-sm italic">"파주 휴게소 햄버거 트럭 오늘 늦게까지 열어요!"</p>
+</div>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-sm font-bold">24</span>
+</div>
+</div>
+<div class="glass-card p-4 rounded-xl border border-outline-variant flex items-center gap-4">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Professional woman in mobility office." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn-bhTrS6VYxL7NFkc9eg11JaSECrkgcxRl9dpdDY4CFdKhnxdGW2sCt6lRlEvetjelU-8qYSRW2zExNMUwlX9lFnU1q3Pr-8aeTG2S5xO6hqFcgmwYQT0lXMb2EbjSVVE3KUQ_7ctkbSSHbSz8nM8K8rJC_9Eif5aJeJqg_uEtdK9uZrGuThOP-OIJaOK-fi1sTHNfoHiFYbYtS1RQmX9yvcFpqo2wnaLyBWwNOKh8WeUGjbyDAEr5INgmohQ0a6L5qNfpVlW92E"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+</div>
+<div class="flex-1">
+<p class="text-on-surface font-body-md text-body-md"><span class="font-bold">최 매니저님이</span> 기록을 달성했습니다</p>
+<p class="text-on-surface-variant text-sm italic">"무사고 100,000km 달성! unsu.ai 통계가 집중하는 데 도움이 됐어요."</p>
+</div>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-sm font-bold">58</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 pb-safe bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline shadow-lg rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-variant dark:hover:bg-on-tertiary-fixed-variant transition-colors" href="landing.html">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-lg text-label-lg">홈</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-variant dark:hover:bg-on-tertiary-fixed-variant transition-colors" href="gillog.html">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-lg text-label-lg">길로그</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 scale-90 transition-transform duration-200" href="roadboarder.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">videocam</span>
+<span class="font-label-lg text-label-lg">로드보더</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:bg-surface-variant dark:hover:bg-on-tertiary-fixed-variant transition-colors" href="login.html">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-lg text-label-lg">마이페이지</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for video thumbnails
+        document.querySelectorAll('.group').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const playIcon = item.querySelector('.play-btn-glow');
+                if(playIcon) playIcon.classList.add('scale-110');
+            });
+            item.addEventListener('mouseleave', () => {
+                const playIcon = item.querySelector('.play-btn-glow');
+                if(playIcon) playIcon.classList.remove('scale-110');
+            });
+        });
+
+        // Simple smooth scroll behavior for horizontal lists
+        const horizontalScrolls = document.querySelectorAll('.no-scrollbar');
+        horizontalScrolls.forEach(scroll => {
+            scroll.addEventListener('wheel', (evt) => {
+                evt.preventDefault();
+                scroll.scrollLeft += evt.deltaY;
+            });
+        });
+    </script>
+</body></html>

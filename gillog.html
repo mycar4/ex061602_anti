@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gillog - Community &amp; Reports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdfa0",
+                    "on-surface": "#071e27",
+                    "surface-container-highest": "#cfe6f2",
+                    "on-background": "#071e27",
+                    "secondary-fixed-dim": "#fbbc00",
+                    "on-primary-fixed": "#001c3a",
+                    "surface": "#f3faff",
+                    "inverse-on-surface": "#dff4ff",
+                    "primary-fixed-dim": "#a5c8ff",
+                    "on-tertiary-fixed-variant": "#3b4951",
+                    "on-primary-container": "#fffdff",
+                    "surface-tint": "#005faf",
+                    "on-primary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#cfe6f2",
+                    "on-tertiary-container": "#fdfdff",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#e6f6ff",
+                    "primary": "#005dac",
+                    "on-primary-fixed-variant": "#004786",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#a5c8ff",
+                    "tertiary-container": "#697781",
+                    "tertiary-fixed-dim": "#bac9d3",
+                    "tertiary": "#505e68",
+                    "tertiary-fixed": "#d6e5ef",
+                    "on-secondary-fixed-variant": "#5c4300",
+                    "background": "#f3faff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#6d5000",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#d4e3ff",
+                    "primary-container": "#1976d2",
+                    "surface-dim": "#c7dde9",
+                    "secondary-container": "#ffbf00",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#0f1d25",
+                    "outline": "#717783",
+                    "inverse-surface": "#1e333c",
+                    "on-surface-variant": "#414752",
+                    "secondary": "#795900",
+                    "surface-bright": "#f3faff",
+                    "on-secondary-fixed": "#261a00",
+                    "outline-variant": "#c1c6d4",
+                    "surface-container": "#dbf1fe"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-desktop": "24px",
+                    "base": "8px",
+                    "stack-sm": "12px",
+                    "gutter-mobile": "16px",
+                    "stack-md": "24px",
+                    "touch-target-min": "48px",
+                    "margin-edge": "20px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "label-lg": ["Inter"],
+                    "data-numeric": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["26px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "data-numeric": ["22px", {"lineHeight": "28px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid #E2E8F0;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        @media (min-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scroll-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center px-gutter-mobile h-touch-target-min w-full sticky top-0 z-50 bg-surface shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<h1 class="font-display-lg text-headline-md font-bold text-primary">unsu.ai</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+</button>
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="px-gutter-mobile pt-stack-md space-y-stack-md">
+<!-- Morning Data Report Section -->
+<section class="space-y-4">
+<div class="flex justify-between items-end">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">오늘 아침 운행 리포트</h2>
+<span class="font-label-lg text-label-lg text-primary">전체 분석 보기</span>
+</div>
+<div class="glass-card rounded-xl p-5 shadow-sm overflow-hidden relative">
+<div class="flex justify-between mb-4">
+<div>
+<p class="font-label-lg text-label-lg text-on-surface-variant">예상 최대 수익</p>
+<p class="font-data-numeric text-data-numeric text-primary">₩28,500 <span class="text-label-lg font-medium">/hr</span></p>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">수요 폭발</span>
+</div>
+</div>
+<!-- Simple Graph Placeholder -->
+<div class="h-32 w-full flex items-end gap-1">
+<div class="bg-surface-variant w-full rounded-t-sm" style="height: 40%"></div>
+<div class="bg-surface-variant w-full rounded-t-sm" style="height: 55%"></div>
+<div class="bg-surface-variant w-full rounded-t-sm" style="height: 45%"></div>
+<div class="bg-primary w-full rounded-t-sm relative" style="height: 85%">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-[10px] px-1.5 py-0.5 rounded">09:00</div>
+</div>
+<div class="bg-secondary-container w-full rounded-t-sm" style="height: 95%"></div>
+<div class="bg-surface-variant w-full rounded-t-sm" style="height: 60%"></div>
+<div class="bg-surface-variant w-full rounded-t-sm" style="height: 35%"></div>
+<div class="bg-surface-variant w-full rounded-t-sm" style="height: 40%"></div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="lightbulb">lightbulb</span>
+<p class="font-label-lg text-label-lg italic">강남 지역 15분 후 콜 급증 예상</p>
+</div>
+</div>
+</section>
+<!-- Community Segments -->
+<section class="space-y-stack-md">
+<!-- Navigation Chips -->
+<div class="flex gap-2 overflow-x-auto scroll-hide">
+<button class="flex-none px-4 py-2 bg-primary text-on-primary rounded-full font-label-lg text-label-lg">베테랑 꿀팁</button>
+<button class="flex-none px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-lg text-label-lg">초보 고민</button>
+<button class="flex-none px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-lg text-label-lg">지역 소식</button>
+<button class="flex-none px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-lg text-label-lg">수익 인증</button>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Veteran Tip Card 1 -->
+<div class="glass-card rounded-xl p-4 flex flex-col justify-between min-h-[160px] border-l-4 border-l-secondary-container">
+<div>
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-lg text-label-lg text-secondary font-bold">오늘의 필승 전략</span>
+<span class="material-symbols-outlined text-outline-variant" data-icon="more_vert">more_vert</span>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface leading-tight">이태원 금요일 밤 피크 정복하기</h3>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDoN6MYXwc77M9uOwVLBGbRX1fhu3igaZTyjLXhf1IG9sMrc9_x9FMfzGmq0h00kTB9WzCwCtD-0Z3E2udE0AG37RZ7E8zhioXTFTrz-WsSFnmViU7_gUwSfwkETEUw7frnP314W24t_qfFP0jEi9Hp_-H0Cz0TPWclcTT1yb5Z0QyHA_XpD50sVpaQR5n3Q5Lnd7D9Ydeeg6Q7ZZrcz8NLN7XmhiCsHrzAbnj-yV8k165O2gPREru5FL5ZLnhRES6NM5EplU0XpA"/>
+</div>
+<div>
+<p class="text-[12px] font-bold leading-none">Pro_Driver88</p>
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] px-1.5 py-0.5 rounded-full font-bold">100만 클럽</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="thumb_up">thumb_up</span>
+<span class="text-[12px] font-medium">128</span>
+</div>
+</div>
+</div>
+<!-- Veteran Tip Card 2 -->
+<div class="glass-card rounded-xl p-4 flex flex-col justify-between min-h-[160px]">
+<div>
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-lg text-label-lg text-tertiary font-bold">차량 관리</span>
+<span class="material-symbols-outlined text-outline-variant" data-icon="more_vert">more_vert</span>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface leading-tight">오늘 대기 없는 전기차 충전소 3곳</h3>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVyANHAVI1cOOxHq30wMSHUsifejdkhSPqLdHGOmVRId1ae3g_N2IRhZlgqaZXi6XNKYUTm55bqZ7Ea3xt700y-_35rDIZDABO6WRxR2LUGirMn2ZMpXkTRP1Ww3CVhoRAX2tvRgGe_yoqc3ynx1WkyYBmqjW7A9TmPK8KM5LUV7WsayTJQ7uHUL8oGcnhyOC3ie9jW-2-7smbvXApvhT-1C2iyFEduujhMY2g-7S-yOkX90u9twqkwKE5YUjTiqT0s1VwJArOk1A"/>
+</div>
+<div>
+<p class="text-[12px] font-bold leading-none">TeslaKing</p>
+<span class="bg-primary-fixed text-on-primary-fixed-variant text-[10px] px-1.5 py-0.5 rounded-full font-bold">효율 전문가</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="thumb_up">thumb_up</span>
+<span class="text-[12px] font-medium">54</span>
+</div>
+</div>
+</div>
+<!-- Highlight: Beginner's Worries Section -->
+<div class="md:col-span-2 space-y-3">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+                        실시간 초보 고민 상담소
+                    </h3>
+<div class="space-y-2">
+<!-- Worry Item 1 -->
+<div class="bg-surface-container-low rounded-lg p-3 flex items-center gap-4">
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface line-clamp-1">"무례한 승객 대처법..."</p>
+<p class="text-[12px] text-on-surface-variant">Asked by NewbieDriver • 12 replies</p>
+</div>
+<button class="bg-white border border-outline-variant px-3 py-1.5 rounded-full text-primary font-label-lg text-[12px]">도와주기</button>
+</div>
+<!-- Worry Item 2 -->
+<div class="bg-surface-container-low rounded-lg p-3 flex items-center gap-4">
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface line-clamp-1">"세금 환급 최대화 방법..."</p>
+<p class="text-[12px] text-on-surface-variant">Asked by TaxQuest • 5 replies</p>
+</div>
+<button class="bg-white border border-outline-variant px-3 py-1.5 rounded-full text-primary font-label-lg text-[12px]">도와주기</button>
+</div>
+</div>
+</div>
+<!-- Featured Revenue Certification -->
+<div class="md:col-span-2 glass-card rounded-xl overflow-hidden shadow-sm">
+<div class="p-4 bg-secondary text-on-secondary flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+<h4 class="font-label-lg text-label-lg">수익 인증의 전당</h4>
+</div>
+<span class="text-[12px] opacity-90">최근 24시간</span>
+</div>
+<div class="p-4 flex gap-4 overflow-x-auto scroll-hide">
+<!-- Card 1 -->
+<div class="flex-none w-48 bg-surface rounded-lg p-3 border border-outline-variant text-center">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed mx-auto mb-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<p class="font-bold text-[14px]">RoadWarrior_X</p>
+<p class="text-secondary font-data-numeric text-[18px]">₩1,240,000</p>
+<span class="inline-block mt-2 bg-secondary-container text-on-secondary-container text-[10px] px-2 py-0.5 rounded-full font-bold">100만 클럽</span>
+</div>
+<!-- Card 2 -->
+<div class="flex-none w-48 bg-surface rounded-lg p-3 border border-outline-variant text-center">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed mx-auto mb-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<p class="font-bold text-[14px]">NightOwl_7</p>
+<p class="text-secondary font-data-numeric text-[18px]">₩1,055,000</p>
+<span class="inline-block mt-2 bg-secondary-container text-on-secondary-container text-[10px] px-2 py-0.5 rounded-full font-bold">100만 클럽</span>
+</div>
+<!-- Card 3 -->
+<div class="flex-none w-48 bg-surface rounded-lg p-3 border border-outline-variant text-center opacity-60">
+<div class="w-12 h-12 rounded-full bg-surface-variant mx-auto mb-2 flex items-center justify-center text-outline">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+</div>
+<p class="font-bold text-[14px]">클럽 가입하기</p>
+<p class="text-outline font-data-numeric text-[18px]">₩0</p>
+<span class="inline-block mt-2 bg-surface-variant text-on-surface-variant text-[10px] px-2 py-0.5 rounded-full font-bold">지금 인증하기</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button (Write) -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center z-50 hover:scale-105 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="edit" style="font-variation-settings: 'FILL' 1;">edit</span>
+</button>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 pb-safe bg-surface-container-lowest border-t border-outline-variant shadow-lg rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant transition-colors" href="landing.html">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-lg text-label-lg">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 scale-90 transition-transform duration-200" href="gillog.html">
+<span class="material-symbols-outlined" data-icon="forum" style="font-variation-settings: 'FILL' 1;">forum</span>
+<span class="font-label-lg text-label-lg">Gillog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant transition-colors" href="roadboarder.html">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+<span class="font-label-lg text-label-lg">Roadboarder</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-variant transition-colors" href="login.html">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-lg text-label-lg">My Page</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for tabs
+        const tabs = document.querySelectorAll('.flex-none.px-4.py-2');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('bg-primary', 'text-on-primary');
+                    t.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+                });
+                tab.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+                tab.classList.add('bg-primary', 'text-on-primary');
+            });
+        });
+
+        // Atmospheric parallax/scroll reveal for cards
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const intensity = Math.min(1, (window.innerHeight - rect.top) / 500);
+                    card.style.transform = `translateY(${(1 - intensity) * 10}px)`;
+                    card.style.opacity = intensity;
+                }
+            });
+        });
+    </script>
+</body></html>
